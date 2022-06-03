@@ -1,0 +1,45 @@
+{% extends 'polls/base.html' %}
+
+    {% block body %}
+
+        <div class="container-fluid">
+
+            <div class="row justify-content-center my-5">
+                <h1 class="text-center">Welcome to the portal !</h1>
+            </div>
+
+            <div class="row justify-content-center my-5">
+                <div class="col-2 align-self-center">
+
+                    {% if user_data.id %}
+                        <p>USER ID : {{user_data.id}}</p>
+                    {% endif %}
+            
+                    {% if user_data.username %}
+                        <p>USERNAME : {{user_data.username}}</p>
+                    {% endif %}
+
+                    {% if user_data.about_me %}
+                        <p>ABOUT ME : {{user_data.about_me}}</p>
+                    {% endif %}
+                    {% if user_data.dob %}
+                        <p>DOB : {{user_data.dob}}</p>
+                    {% endif %}
+
+                </div>
+                <div class="col-4 align-self-center">
+                    {% if user_data.photo_url %}
+                    <p>PHOTO URL :</p>
+                        <img src="{{user_data.photo_url}}"/>
+                    {% endif %}
+                </div>
+            </div>
+        
+
+        </div>
+
+
+
+
+
+    {% endblock body %}
