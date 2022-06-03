@@ -53,3 +53,48 @@ def index(request):
 
 def graph_experiment(request):
     return render(request, 'polls/graph_experiment.html', context={})
+
+#----------------BELOW HERE LITERALLY COPY PASTED-----------------------------------------------------------------
+
+# i think these won't work because they're set up to work with mongo... 
+# and those endpoints no longer exist... 
+
+def get_bike_daily():
+    url = API_URL + '/get_bike'
+    bike = get_from_api(url)
+    return json.dumps(bike.json()['hourly']) 
+
+def get_bike_weekly():
+    url = API_URL + '/get_bike'
+    bike = get_from_api(url)
+    return json.dumps(bike.json()['daily'])
+
+def get_bike_monthly():
+    url = API_URL + '/get_bike'
+    bike = get_from_api(url)
+    return json.dumps(bike.json()['daily'])
+
+def get_bike_yearly():
+    url = API_URL + '/get_bike'
+    bike = get_from_api(url)
+    return json.dumps(bike.json()['monthly'])
+
+def get_desk_daily():
+    url = API_URL + '/get_desk'
+    desk = get_from_api(url)
+    return json.dumps(desk.json()['hourly'])
+
+def get_desk_weekly():
+    url = API_URL + '/get_desk'
+    desk = get_from_api(url)
+    return json.dumps(desk.json()['daily'])
+
+def get_desk_monthly():
+    url = API_URL + '/get_desk'
+    desk = get_from_api(url)
+    return json.dumps(desk.json()['daily'])
+
+def get_desk_yearly():
+    url = API_URL + '/get_desk'
+    desk = get_from_api(url)
+    return json.dumps(desk.json()['monthly'])
