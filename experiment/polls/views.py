@@ -50,3 +50,6 @@ def index(request):
 
     user_data = r2.json() #not sure if this is a good idea...
     return render(request, 'polls/index.html', context={'user_data':user_data})#, context)
+
+def graph_experiment(request):
+    return render(request, 'polls/graph_experiment.html', context={})
