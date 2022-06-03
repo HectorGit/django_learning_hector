@@ -60,41 +60,65 @@ def graph_experiment(request):
 # and those endpoints no longer exist... 
 
 def get_bike_daily():
-    url = API_URL + '/get_bike'
+    # url = API_URL + '/get_bike'
+    # bike = get_from_api(url)
+    # return json.dumps(bike.json()['hourly']) 
+    url = API_URL + '/get_bike_data'
     bike = get_from_api(url)
-    return json.dumps(bike.json()['hourly']) 
+    return json.dumps(bike.json()) 
 
 def get_bike_weekly():
-    url = API_URL + '/get_bike'
+    # url = API_URL + '/get_bike'
+    # bike = get_from_api(url)
+    # return json.dumps(bike.json()['daily'])
+    url = API_URL + '/get_bike_data'
     bike = get_from_api(url)
-    return json.dumps(bike.json()['daily'])
+    return json.dumps(bike.json()) 
 
 def get_bike_monthly():
-    url = API_URL + '/get_bike'
+    # url = API_URL + '/get_bike'
+    # bike = get_from_api(url)
+    # return json.dumps(bike.json()['daily'])
+    url = API_URL + '/get_bike_data_monthly'
     bike = get_from_api(url)
-    return json.dumps(bike.json()['daily'])
+    return json.dumps(bike.json()) 
 
 def get_bike_yearly():
-    url = API_URL + '/get_bike'
+    # url = API_URL + '/get_bike'
+    # bike = get_from_api(url)
+    # return json.dumps(bike.json()['monthly'])
+    url = API_URL + '/get_bike_data'
     bike = get_from_api(url)
-    return json.dumps(bike.json()['monthly'])
+    return json.dumps(bike.json()) 
 
 def get_desk_daily():
-    url = API_URL + '/get_desk'
+    # url = API_URL + '/get_desk'
+    # desk = get_from_api(url)
+    # return json.dumps(desk.json()['hourly'])
+    url = API_URL + '/get_desk_data'
     desk = get_from_api(url)
-    return json.dumps(desk.json()['hourly'])
+    return json.dumps(desk.json())
 
 def get_desk_weekly():
-    url = API_URL + '/get_desk'
+    # url = API_URL + '/get_desk'
+    # desk = get_from_api(url)
+    # return json.dumps(desk.json()['daily'])
+    url = API_URL + '/get_desk_data'
     desk = get_from_api(url)
-    return json.dumps(desk.json()['daily'])
+    return json.dumps(desk.json())
 
 def get_desk_monthly():
-    url = API_URL + '/get_desk'
+    # url = API_URL + '/get_desk'
+    # desk = get_from_api(url)
+    # return json.dumps(desk.json()['daily'])
+    url = API_URL + '/get_desk_data_monthly'
     desk = get_from_api(url)
-    return json.dumps(desk.json()['daily'])
+    return json.dumps(desk.json())
 
 def get_desk_yearly():
-    url = API_URL + '/get_desk'
+    # url = API_URL + '/get_desk'
+    # desk = get_from_api(url)
+    # return json.dumps(desk.json()['monthly'])
+    url = API_URL + '/get_desk_data'
     desk = get_from_api(url)
-    return json.dumps(desk.json()['monthly'])
+    return json.dumps(desk.json())
