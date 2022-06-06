@@ -40,27 +40,25 @@ $(document).ready(function(){
   $('#fetch-user-bike-data').on('click', function(){
     console.log("clicked fetch user bike data")
 
-    //THIS IS JUST DUMMY , WE WOULD NEED TO FIX THIS TO ACTUALLY GET THE APPROPRIATE DATA
-    // $.ajax({
+    // THIS IS JUST DUMMY , WE WOULD NEED TO FIX THIS TO ACTUALLY GET THE APPROPRIATE DATA
+    $.ajax({
 
-    //     'url' : 'http://localhost:5001/get_bike_data', //this may not work
-    //     'type' : 'GET',
-    //     'data' : {},//no data needed
-    //     'success' : function(response,success) {              
-    //         console.log('Response: '+response);
-    //         console.log('Success: '+success);
-    //         //IF WE DID GET THE DATA, WE COULD 'UPDATE' 
-    //         //THE CHART W THE NEW DATA 
-    //         //(WOULD NEED TO SET LABELS)
-    //         //(WOULD NEED TO SET ACTUAL DATA ITSELF)
-    //         //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
-    //     },
-    //     'error' : function(response,success)
-    //     {
-    //       console.log('Response: '+response);
-    //       console.log('Success: '+success);        
-    //     }
-    // });
+        'url' : 'http://localhost:5001/get_bike_data_django', //hardcoded my user ID on the API branch django-experiment
+        'type' : 'GET',
+        'data' : {},//no data needed
+        'success' : function(data) {              
+            console.log('data: '+data);
+            //IF WE DID GET THE DATA, WE COULD 'UPDATE' 
+            //THE CHART W THE NEW DATA 
+            //(WOULD NEED TO SET LABELS)
+            //(WOULD NEED TO SET ACTUAL DATA ITSELF)
+            //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
+        },
+        'error' : function(error)
+        {
+          console.log('error: '+error);
+        }
+    });
 
   })
 
