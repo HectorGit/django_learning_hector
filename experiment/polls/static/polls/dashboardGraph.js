@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  console.log("JS CONNECTED DASHBOARD GRAPH")
+
   //CODE THAT WAS IN CHART.JS GET STARTED.
 
   //configurations
