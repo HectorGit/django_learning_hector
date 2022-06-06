@@ -43,7 +43,7 @@ $(document).ready(function(){
     // THIS IS JUST DUMMY , WE WOULD NEED TO FIX THIS TO ACTUALLY GET THE APPROPRIATE DATA
     $.ajax({
 
-        'url' : 'http://localhost:5001/get_bike_data_django', //hardcoded my user ID on the API branch django-experiment
+        'url' : 'http://localhost:5001/get_desk_data_django', //hardcoded my user ID on the API branch django-experiment
         'type' : 'GET',
         'data' : {},//no data needed
         'success' : function(data) {              
