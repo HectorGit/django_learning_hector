@@ -54,9 +54,15 @@ $(document).ready(function(){
 
             //IF WE DID GET THE DATA, WE COULD 'UPDATE' 
             //THE CHART W THE NEW DATA 
+
             //(WOULD NEED TO SET LABELS)
+            //For example, 24 hours (put 0 to 23 in an array ?) (or is it 1 to 24 ?)
+            // newlabels = Array.from(Array(24).keys())
+
             //(WOULD NEED TO SET ACTUAL DATA ITSELF)
             //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
+            // data = zeroes unless there's data for that hour
+
         },
         'error' : function(error)
         {
