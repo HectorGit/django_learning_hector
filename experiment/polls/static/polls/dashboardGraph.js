@@ -50,7 +50,7 @@ $(document).ready(function(){
           
             // response = JSON.parse(data); //TRIED DOING THIS BUT IT DIDN'T ALLOW
 
-            console.log('data : '+ data);// prints object.Object , object.Object
+            console.log('data : '+ data);// prints - data : [object Object],[object Object]
 
             //IF WE DID GET THE DATA, WE COULD 'UPDATE' 
             //THE CHART W THE NEW DATA 
