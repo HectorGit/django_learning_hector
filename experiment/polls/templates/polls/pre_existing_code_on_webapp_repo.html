@@ -1,0 +1,144 @@
+{% extends 'polls/base.html' %}
+
+
+    {% load static %}
+
+
+    {% block scripts %}
+        <!-- <link rel="stylesheet" type="text/js" href="{% static 'polls/dashboardGraph.js' %}"> -->
+        <script src="/static/js/Chart.min.js"></script>
+    {% endblock scripts %}
+
+    {% block body %}
+
+        <div class="container-fluid">
+
+            <div class="row justify-content-center my-5">
+                <h1 class="text-center">Welcome to the portal !</h1>
+            </div>
+
+            <!-- ERGO GRAPH ELEMENT -->
+            <div class = 'row'>
+                <!-- BIKE GRAPH -->
+                <div class = "col-md-8 col-sm-12 col-xs-12">
+                <div class = "card spaced dashboard">
+                    <div class = 'row' id = 'graph-date-display'> 
+                    <div class = 'col-xs-8 col-md-3' id = 'graph-period-buttons'>
+                        <select id = "date-selector" class = 'inactive-period daily-weekly-monthly'>
+                        <option id = "daily">
+                            Daily
+                        </option>
+                        <option id = "weekly">
+                            Weekly     
+                        </option>
+                        <option id = "monthly">
+                            Monthly  
+                        </option>
+                        <option id = "yearly">
+                            Yearly  
+                        </option>
+                        </select>
+                        <input id="today" class = 'inactive-period btn btn-xs' name="today" type="button" value="Today" style = 'margin-right: 10px; width: 44px'>
+                        <input id="bike" class = 'inactive-period btn btn-xs' name="bike" type="button" value="Bike" style = 'margin-right: 10px; width: 44px'></input>
+                        <input id="desk" class = 'inactive-period btn btn-xs' name="desk" type="button" value="Desk"></input>
+                    </div>
+                    <!-- The push and the pull swap these two cols -->
+                    <div class = 'col-xs-4 col-md-3 col-md-push-6' style = 'text-align: right'>
+                        <input id="graphDistance" class = '' name="distance" type="image" value="distance"  src = '/static/content/distance.png' style = "outline: none; width:20px;">
+                        <input id="graphUsage" class = 'graph-icon-toggle' name="usage" type="image" value="usage"  src = '/static/content/usage.png' style = "outline: none; width:20px;">
+                        <input id="graphCalories" class = 'graph-icon-toggle' name="intensity" type="image" value="intensity"  src = '/static/content/calories.png' style = "outline: none; width: 20px;">
+                        <input id='graphEnergy' class = 'graph-icon-toggle' type = "image" value="enery"  src = '/static/content/energy.png'style="outline: none; width:20px; margin-left: -3px">
+                    </div>
+
+                    <div class = 'col-xs-12 col-md-6 col-md-pull-3'>
+                        <input tabindex="0" id="back_unit" type="image" class = 'graphNavButtons graph-arrows' name="back_unit" value = "back" src = '/static/content/thickLeft2.png'>
+                        <h3 id = "graph-title"></h3>
+                        <input id="forward_unit" type="image" class = 'graphNavButtons graph-arrows' name="forward_unit" value ="forward" src = '/static/content/thickRight2.png'>
+                    </div>
+
+                    </div>
+
+                    <!-- canvas div imports the Chart.js chart through id = 'BikeHourUsage' -->
+                    <canvas id="ergo-graph" width="400px" height="280px"></canvas>
+                    
+                </div>
+            </div>
+            <!-- ERGO GRAPH ELEMENT -->
+
+            <!-- GRAPH SCRIPT IMPORT THING HERE -->
+            <script>
+                var data = [];
+                var labels = [];
+                var is_metric = $('#is_metric').data('name')
+                var datachart = document.getElementById("ergo-graph");
+                Chart.defaults.global.legend.display = false;
+                Chart.defaults.global.title.padding = 10;
+                var dashboardGraph = new Chart(datachart, {
+                  type: 'bar',
+                  data: {
+                    labels: labels,
+                    yAxisID: 'Time',
+                    datasets: [{
+                      data: [],
+                      labels: [],
+                      borderWidth: 4,
+                      hidden: false,
+                      borderColor: '#F7941E',
+                      backgroundColor: '#FFBF53',
+                      order: 1
+                    },
+                    {
+                      data: [], 
+                      labels: [],
+                      borderWidth: 4,
+                      hidden: false,
+                      borderColor: '#FFBF53',
+                      backgroundColor: '#FCCB77',
+                      order: 2
+                    }
+                    ]
+                  },
+                  
+                  options: {
+                    responsive: true,
+                      title: {
+                      display: true,
+                      yAxisID: 'Distance Pedalled(m)',
+                      text: '',
+                      fontSize: 12,
+                      },
+                      scales: {
+                        yAxes: [{
+                          ticks: {
+                            beginAtZero: true,
+                          }
+                        }],
+                      },
+                    tooltips: {
+                      callbacks: {
+                        label: function a(tooltipItem, data) {
+                          if(tooltipItem.datasetIndex == 0){
+                            var label = data.datasets[0].label[tooltipItem.index]
+                            return label
+                          }
+                          else if (tooltipItem.datasetIndex == 1) {
+                            var label = data.datasets[1].label[tooltipItem.index]
+                            return label
+                          }
+                        },
+                        title: function b(tooltipItem, data) {
+                          var title = data.datasets[0].title[tooltipItem[0].index]
+                          return title
+                        }
+                      }
+                    }
+                  }
+                  
+                });
+            </script>
+            <!-- GRAPH SCRIPT IMPORT THING HERE -->
+
+        </div>
+
+
+    {% endblock body %}
