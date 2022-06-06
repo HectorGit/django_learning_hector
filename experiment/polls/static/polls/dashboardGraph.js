@@ -46,8 +46,12 @@ $(document).ready(function(){
         'url' : 'http://localhost:5001/get_desk_data_django', //hardcoded my user ID on the API branch django-experiment
         'type' : 'GET',
         'data' : {},//no data needed
-        'success' : function(data) {              
-            console.log('data: '+data);
+        'success' : function(data) {   
+          
+            // response = JSON.parse(data); //TRIED DOING THIS BUT IT DIDN'T ALLOW
+
+            console.log('data : '+ data);// prints object.Object , object.Object
+
             //IF WE DID GET THE DATA, WE COULD 'UPDATE' 
             //THE CHART W THE NEW DATA 
             //(WOULD NEED TO SET LABELS)
