@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  //CODE THAT WAS IN CHART.JS GET STARTED.
+
   //configurations
   const labels = [
     'January',
@@ -31,5 +33,10 @@ $(document).ready(function(){
     document.getElementById('myChart'),
     config
   );
+
+  //CODE BY HECTOR
+  $('#fetch-user-bike-data').on('click', function(){
+    console.log("clicked fetch user bike data")
+  })
 
 })
