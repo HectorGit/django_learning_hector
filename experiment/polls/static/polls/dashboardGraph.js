@@ -57,11 +57,23 @@ $(document).ready(function(){
 
             //(WOULD NEED TO SET LABELS)
             //For example, 24 hours (put 0 to 23 in an array ?) (or is it 1 to 24 ?)
-            // newlabels = Array.from(Array(24).keys())
+            var newlabels = Array.from(Array(24).keys())
 
             //(WOULD NEED TO SET ACTUAL DATA ITSELF)
             //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
             // data = zeroes unless there's data for that hour
+            var new_data_for_graph  = new Array(24).fill(0);
+
+            $.each(data , function(hourly_record_index) { 
+              console.log("hourly_record", data[hourly_record_index])
+              hour_for_this_entry = data[hourly_record_index]['hour']
+              new_data_for_graph[hour_for_this_entry]= data[hourly_record_index]['time_total']
+            });
+
+            //not sure if this is the right way of doing this.
+            myChart.labels = newlabels
+            myChart.data = new_data_for_graph
+            myChart.update()
 
         },
         'error' : function(error)
