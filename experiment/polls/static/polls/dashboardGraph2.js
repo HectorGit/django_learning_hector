@@ -103,7 +103,7 @@ $(document).ready(function(){
             mySecondChart.data.labels = newlabelsstrings
             // mySecondChart.data.datasets[0].title = newlabelsstrings //I think this is how this should be accessed
             mySecondChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
-            mySecondChart.data.datasets[0].label = 'Hector\'s Activity for this Month' //I think this is how this should be accessed
+            mySecondChart.data.datasets[0].label = 'Sergio\'s Activity for this Month' //I think this is how this should be accessed
             mySecondChart.update()
 
         },

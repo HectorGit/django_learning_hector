@@ -83,7 +83,7 @@ $(document).ready(function(){
             myChart.data.labels = newlabelsstrings
             // myChart.data.datasets[0].title = newlabelsstrings //I think this is how this should be accessed
             myChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
-            myChart.data.datasets[0].label = 'Hector\'s Activity for this 24 Hour Period' //I think this is how this should be accessed
+            myChart.data.datasets[0].label = 'Sergio\'s Activity for this 24 Hour Period' //I think this is how this should be accessed
             myChart.update()
 
         },
