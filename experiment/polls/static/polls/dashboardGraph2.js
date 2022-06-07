@@ -31,19 +31,19 @@ $(document).ready(function(){
   };
 
   //create the chart
-  const myChart = new Chart(
-    document.getElementById('myChart'),
+  const mySecondChart = new Chart(
+    document.getElementById('mySecondChart'),
     config
   );
 
   //CODE BY HECTOR
-  $('#fetch-user-desk-data').on('click', function(){
+  $('#fetch-user-desk-monthly-data').on('click', function(){
     console.log("clicked fetch user bike data")
 
     // THIS IS JUST DUMMY , WE WOULD NEED TO FIX THIS TO ACTUALLY GET THE APPROPRIATE DATA
     $.ajax({
 
-        'url' : 'http://localhost:5001/get_desk_data_django', //hardcoded my user ID on the API branch django-experiment
+        'url' : 'http://localhost:5001/get_desk_data_monthly_django', //hardcoded my user ID on the API branch django-experiment
         'type' : 'GET',
         'data' : {},//no data needed
         'success' : function(data) {   
@@ -56,8 +56,8 @@ $(document).ready(function(){
             //THE CHART W THE NEW DATA 
 
             //(WOULD NEED TO SET LABELS)
-            //For example, 24 hours (put 0 to 23 in an array ?) (or is it 1 to 24 ?)
-            var newlabelsnumbers = Array.from(Array(24).keys())
+            //For example, 12 Months in the year.
+            var newlabelsnumbers = Array.from(Array(12).keys())
             var newlabelsstrings = newlabelsnumbers.map(num => {
               return String(num);
             });
@@ -66,13 +66,18 @@ $(document).ready(function(){
             //(WOULD NEED TO SET ACTUAL DATA ITSELF)
             //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
             // data = zeroes unless there's data for that hour
-            var new_data_for_graph  = new Array(24).fill(0);
+            var new_data_for_graph  = new Array(12).fill(0);
             console.log("\n Before - new_data_for_graph ", new_data_for_graph)
 
-            $.each(data , function(hourly_record_index) { 
-              console.log("hourly_record :", data[hourly_record_index])
-              hour_for_this_entry = data[hourly_record_index]['hour']
-              new_data_for_graph[hour_for_this_entry]= data[hourly_record_index]['time_total']
+            $.each(data , function(monthly_record_index) { 
+              console.log("monthly_record :", data[monthly_record_index])
+              timestamp = data[monthly_record_index]['timestamp']//can we get the month out of the timestamp?
+              date = new Date(timestamp)
+              month = date.getMonth()
+              console.log("Got that the month is : ", month)
+              month_for_this_entry = month //NOTE - gotta try to figure out the following:
+              //THERE IS NO field that we can refer to here to figure things out... just the timestamp.
+              new_data_for_graph[month_for_this_entry]= data[monthly_record_index]['time_total']
             });
 
             console.log("After using the data fetched :")
@@ -80,11 +85,11 @@ $(document).ready(function(){
             console.log("\n new_data_for_graph ", new_data_for_graph)
 
             //not sure if this is the right way of doing this.
-            myChart.data.labels = newlabelsstrings
-            // myChart.data.datasets[0].title = newlabelsstrings //I think this is how this should be accessed
-            myChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
-            myChart.data.datasets[0].label = 'Hector\'s Activity for this 24 Hour Period' //I think this is how this should be accessed
-            myChart.update()
+            mySecondChart.data.labels = newlabelsstrings
+            // mySecondChart.data.datasets[0].title = newlabelsstrings //I think this is how this should be accessed
+            mySecondChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
+            mySecondChart.data.datasets[0].label = 'Hector\'s Activity for this Month' //I think this is how this should be accessed
+            mySecondChart.update()
 
         },
         'error' : function(error)

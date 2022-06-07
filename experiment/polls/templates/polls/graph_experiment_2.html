@@ -6,7 +6,7 @@
 
     {% block scripts %}
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src = "{% static 'polls/dashboardGraph.js' %}"></script><!--script configures and renders the element-->
+        <script src = "{% static 'polls/dashboardGraph2.js' %}"></script><!--script configures and renders the element-->
     {% endblock scripts %}
 
     {% block body %}
@@ -16,18 +16,18 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center my-5">
-                <h1 class="text-center">Welcome to the portal !</h1>
+                <h1 class="text-center">Same as the other page, but fetching Monthly data !</h1>
             </div>
 
             <div class = 'row'>
               <div class = "col-md-8 col-sm-12 col-xs-12">
-                  <button id="fetch-user-desk-data">Fetch User Desk Data</button>      
+                  <button id="fetch-user-desk-monthly-data">Fetch User Desk Monthly Data</button>      
               </div>
             </div>
 
             <div class = 'row justify-content-center'>
                 <div class = "col-md-8 col-sm-12 col-xs-12">
-                    <canvas id="myChart"></canvas><!--this is where the chart.js element gets rendered.-->           
+                    <canvas id="mySecondChart"></canvas><!--this is where the chart.js element gets rendered.-->           
                 </div>
             </div>
         </div>

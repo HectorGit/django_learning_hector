@@ -54,6 +54,9 @@ def index(request):
 def graph_experiment(request):
     return render(request, 'polls/graph_experiment.html', context={})
 
+def graph_experiment_2(request):
+    return render(request, 'polls/graph_experiment_2.html', context={})
+
 #----------------BELOW HERE LITERALLY COPY PASTED-----------------------------------------------------------------
 
 # i think these won't work because they're set up to work with mongo... 
