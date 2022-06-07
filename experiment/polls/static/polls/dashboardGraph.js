@@ -80,8 +80,10 @@ $(document).ready(function(){
             console.log("\n new_data_for_graph ", new_data_for_graph)
 
             //not sure if this is the right way of doing this.
-            myChart.labels = newlabelsstrings
+            myChart.data.labels = newlabelsstrings
+            // myChart.data.datasets[0].title = newlabelsstrings //I think this is how this should be accessed
             myChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
+            myChart.data.datasets[0].label = 'Hector\'s Activity for this Month' //I think this is how this should be accessed
             myChart.update()
 
         },
