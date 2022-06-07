@@ -57,10 +57,25 @@ $(document).ready(function(){
 
             //(WOULD NEED TO SET LABELS)
             //For example, 12 Months in the year.
-            var newlabelsnumbers = Array.from(Array(12).keys())
-            var newlabelsstrings = newlabelsnumbers.map(num => {
-              return String(num);
-            });
+            // var newlabelsnumbers = Array.from(Array(12).keys())
+            // var newlabelsstrings = newlabelsnumbers.map(num => {
+            //   return String(num);
+            // });
+            newlabelsstrings = [
+              'January',
+              'February',
+              'March',
+              'April',
+              'May',
+              'June',
+              'July',
+              'August',
+              'September',
+              'October',
+              'November',
+              'December'
+            ];
+
             console.log("\n Before - newlabelsstrings ", newlabelsstrings)
 
             //(WOULD NEED TO SET ACTUAL DATA ITSELF)
