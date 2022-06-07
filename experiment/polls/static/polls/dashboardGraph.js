@@ -57,8 +57,11 @@ $(document).ready(function(){
 
             //(WOULD NEED TO SET LABELS)
             //For example, 24 hours (put 0 to 23 in an array ?) (or is it 1 to 24 ?)
-            var newlabels = Array.from(Array(24).keys())
-            console.log("\n Before - newlabels ", newlabels)
+            var newlabelsnumbers = Array.from(Array(24).keys())
+            var newlabelsstrings = newlabelsnumbers.map(num => {
+              return String(num);
+            });
+            console.log("\n Before - newlabelsstrings ", newlabelsstrings)
 
             //(WOULD NEED TO SET ACTUAL DATA ITSELF)
             //THE LENGHTS OF THOSE NEED TO MATCH SO THAT IT CAN BE GRAPHED. 🤔
@@ -73,11 +76,11 @@ $(document).ready(function(){
             });
 
             console.log("After using the data fetched :")
-            console.log("\n newlabels ", newlabels)
+            console.log("\n newlabels ", newlabelsstrings)
             console.log("\n new_data_for_graph ", new_data_for_graph)
 
             //not sure if this is the right way of doing this.
-            myChart.labels = newlabels
+            myChart.labels = newlabelsstrings
             myChart.data.datasets[0].data = new_data_for_graph //I think this is how this should be accessed
             myChart.update()
 
