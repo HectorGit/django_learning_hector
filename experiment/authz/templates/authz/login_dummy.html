@@ -9,7 +9,7 @@
         Id : {{ user.id }}
     </pre>
     <p> You can 
-        <a href="{% url 'logout' %}?next={% url 'polls/graph_experiment' %}">
+        <a href="{% url 'logout' %}?next={% url 'authz:open' %}">
             Logout
         </a>
     </p>
