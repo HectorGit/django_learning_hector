@@ -57,22 +57,6 @@ def graph_experiment(request):
 def graph_experiment_2(request):
     return render(request, 'polls/graph_experiment_2.html', context={})
 
-# --------------- EXPERIMENT -------------------------------------------------------------------------------------
-
-# JUST SETTING UP THE 'DEFAULT' LOGIN PAGE 
-# ATTENTION ! - THIS DOES -NOT- GIVE THE USER A TOKEN, SO THAT'S PROBLEMATIC.
-# THIS IS JUST THE BUILT IN LOGIN THAT DJANGO COMES WITH
-
-from django.urls import reverse #this is needed to get the default login and logout 
-from django.views import View
-
-#Saw this in the 'Django for everybody - Full Python University Course' youtube tutorial
-class DumpPython(View):
-    def get(self,req):
-        resp = "<pre>\nUser Data in Python:\n\n"
-        resp += "Login url: " + reverse('login') + "\n"
-        resp += "Logout url: " + reverse('logout') + "\n\n"
-
 #----------------BELOW HERE LITERALLY COPY PASTED-----------------------------------------------------------------
 
 # i think these won't work because they're set up to work with mongo... 

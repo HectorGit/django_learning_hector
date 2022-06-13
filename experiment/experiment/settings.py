@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'authz.apps.AuthzConfig', # new one, just dedicated to tinkering with default authentication !
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
