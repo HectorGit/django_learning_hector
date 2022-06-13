@@ -30,7 +30,7 @@ urlpatterns = [
     path('authz/', include('authz.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include django.contrib.auth.urls)
+    path('accounts/', include('django.contrib.auth.urls'))
     # path('login/', auth_views.LoginView.as_view(), name='login'), #attempting to set up the default login to see its behaviour
     # path('logout/', auth_views.LoginView.as_view(), name='logout'), #attempting to set up the default login to see its behaviour
 ]
