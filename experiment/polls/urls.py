@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+from django.views.generic import TemplateView #attempting to set up the default login to see its behaviour
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('graph_experiment', views.graph_experiment, name='graph_experiment'),
@@ -14,4 +16,6 @@ urlpatterns = [
     path('get_desk_weekly', views.get_desk_weekly, name='get_desk_weekly'),    #this is probably wrong, as it's not a view... 
     path('get_desk_monthly', views.get_desk_monthly, name='get_desk_monthly'), #this is probably wrong, as it's not a view... 
     path('get_desk_yearly', views.get_desk_yearly, name='get_desk_yearly'),    #this is probably wrong, as it's not a view... 
+    path('login_dummy', TemplateView.as_view(template_name='polls/login_dummy.html')) #attempting to set up the default login to see its behaviour
+
 ]
