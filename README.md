@@ -18,7 +18,7 @@ call venv/scripts/activate
 
              install dependencies
 
-pip install requirements.txt 
+pip install requirements.txt [note - didnt actually have this , but I added it now !]
 
 to run : (navigate to directory where manage.py is)
 
