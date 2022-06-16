@@ -26,3 +26,21 @@ python manage.py runserver
 
 Should be in port 8000
 
+
+---
+
+Important note : 
+
+You will need to get branch `django-experiment` for the API and run it simultaneously (on port 5001, as usual)
+
+---
+
+Routes that you can visit for now : 
+
+localhost:8000/polls
+localhost:8000/polls/graph_experiment
+localhost:8000/polls/graph_experiment_2
+
+localhost:8000/accounts/login (related to /registration/login.html template) [no superuser has been created so login will not work, but you could make one]
+
+---
